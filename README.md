@@ -1,6 +1,7 @@
 Follow these steps to get this demo running:
 
 pip install -r requirements.txt
+
 bower install
 
 crossbar start
