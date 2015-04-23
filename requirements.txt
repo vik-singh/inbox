@@ -1,0 +1,2 @@
+crossbar==0.10.4
+twistar==1.3

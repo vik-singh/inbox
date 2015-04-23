@@ -1,0 +1,7 @@
+/node_modules
+/dist
+/.idea
+/.vagrant
+/.tmp
+/inbox/web/bower_components
+.DS_Store

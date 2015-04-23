@@ -1,0 +1,46 @@
+<form class="form-horizontal">
+    <h1>Welcome {{currentUser.name}}!</h1>
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>New Message</legend>
+
+        <!-- Select Basic -->
+        <div class="control-group">
+            <label class="control-label" for="selectbasic">To:</label>
+
+            <div class="controls">
+                <select ng-model="inbox.new_message.to" ng-options="user.id as user.name for user in inbox.users" id="selectbasic" name="selectbasic" class="input-xlarge">
+                </select>
+            </div>
+        </div>
+
+
+        <!-- Textarea -->
+        <div class="control-group">
+            <label class="control-label" for="textarea-0">Message</label>
+
+            <div class="controls">
+                <textarea ng-model="inbox.new_message.body" id="textarea-0" name="textarea-0">default text</textarea>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="control-group">
+            <div class="controls">
+                <button ng-click="inbox.sendMessage(inbox.new_message)" id="singlebutton-0" name="singlebutton-0" class="btn btn-primary">Send Message</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+
+<table class="table table-striped">
+    <tbody>
+    <tr ng-repeat = "message in inbox.messages | orderBy:'-sent_at'">
+        <td>{{inbox.resolveUser(message.sender_id)}}</td>
+        <td><span am-time-ago="message.sent_at"></span></td>
+        <td>{{message.body}}</td>
+    </tr>
+    </tbody>
+</table>
