@@ -27,10 +27,9 @@ angular.module('inboxApp')
         this.resolveUser = function(user_id) {
             for (var i = 0; i < this.users.length; i++) {
                 if (user_id === this.users[i].id) {
-                    name = this.users[i].name;
-                    break;
+                    return this.users[i].name;
                 }
             }
-            return name;
+            return "Unknown";
         }
     });
